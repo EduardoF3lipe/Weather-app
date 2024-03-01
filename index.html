@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather </title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+   <div class="wrapper">
+        <header>
+            <div class="search-box">
+                <form id="search-form">
+                    <input type="search" placeholder="Find your location" id="search-form-input" autocomplete="off">
+                    <input type="submit" value="Find" id="btn-sub">
+                </form>
+            </div>
+        </header>
+
+        <main>
+            <div class="top-info">
+                <div class="colum1">
+                    <div class="colum1-city">
+                        <i class='bx bx-current-location'></i>
+                        <p id="title">Rome, Italy</p>
+                    </div>
+                    <div class="colum1-temp">
+                        <p id="temp-value">21°C</p>
+                    </div>
+                </div>
+                <div class="colum1-status-weather">
+                    <p id="temp-description"> Mostly sunny</p>
+                    <img id="temp-img" src="" alt="">
+                </div>
+            </div>
+
+            <div class="bottom-info" id="bottom-info" >
+                <div class="box">
+                    <i class='bx bxs-left-top-arrow-circle'></i>
+                    <p id="temp-rain">7%</p>
+                </div>
+                <div class="box">
+                    <i class='bx bxs-droplet'></i>
+                    <p id="temp-humi">64%</p>
+                </div>
+                <div class="box">
+                    <i class='bx bx-wind'></i>
+                    <p id="temp-wind">5 km/h</p>
+                </div>
+            </div>
+            
+        </main>
+
+        <p id="alert"></p>
+
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>

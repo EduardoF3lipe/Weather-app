@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    letter-spacing: .2rem;
+}
+
+
+:root {
+    --white: #fff;
+    --gray: #2F3C4E;
+    --gray-200: #506179;
+    --blue: #0072ff;
+    --bg: #f1f1f1;
+    --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    --alert-bg: #E6B8B8 ;
+    --alert-text: #DE3838;
+}
+
+
+img, svg {
+    width: 100%;
+    object-fit: cover;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    font-family: "Roboto", sans-serif;
+}
+
+/* ================================================= */
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 550px;
+    width: 100%;
+}
+
+
+header {
+    background-color: var(--gray);
+    padding: 1rem 1rem;
+    border-radius: 0.8rem;
+    box-shadow: var(--shadow);
+    min-height: 5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    background-color: transparent;
+    width: 100%;
+    position: relative;
+}
+
+.search-box #search-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+#search-form input[type=search]{
+    background-color: transparent;
+    color: var(--white);
+    font-size: 1.4rem;
+    flex: 1;
+    padding: 0 1rem;
+    color: var(--white);
+}
+
+#search-form input[type=search]:visited{
+    background-color: transparent;
+}
+
+::-webkit-input-placeholder {
+    color: var(--white);
+ }
+
+ 
+#search-form input[type=submit]{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: .9rem 3rem;
+    border-radius: .8rem;
+    cursor: pointer;
+}
+
+#search-form input[type=submit]:hover{
+    opacity: 0.9;
+}
+
+
+/* clears the ‘X’ from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+
+/* ================================================= */
+
+main {
+    background-color: var(--gray);
+    width: 100%;
+    margin-top: 2rem;
+    padding: 3rem 2.7rem;
+    border-radius: 0.8rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow);
+}
+
+#bottom-info.show{
+    display: block;
+}
+
+main .top-info {
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-between;
+    font-weight: 400;
+}
+
+.top-info .colum1-city {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-size: 2rem;
+    
+}
+
+.top-info .colum1-city i {
+    font-size: 2.3rem;
+}
+
+.top-info .colum1-temp p {
+    font-size: 8rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0;
+}
+
+.colum1-status-weather {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.colum1-status-weather img {
+    width: 130px;
+    height: auto;
+    margin-top: 1rem;
+    /* height: 200px; */
+}
+
+.colum1-status-weather p {
+    font-size: 1.9rem;
+}
+
+/* ===================================== */
+
+.bottom-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+
+}
+
+.bottom-info .box i {
+    font-size: 2.5rem;
+
+}
+
+
+.box p {
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
+.bottom-info .box {
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 2rem;
+    background-color: var(--gray-200);
+    border-radius: 2.4rem;
+    cursor: pointer;
+}
+
+
+.bottom-info .box:hover {
+    opacity: 0.8;
+}
+
+
+
+#alert {
+    color: var(--alert-text);
+    font-size: 1.4rem;
+    /* background-color: var(--alert-bg); */
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+
+
+@media screen and (max-width: 620px) {
+
+        
+    .colum1 {
+        text-align: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    html {
+        font-size: 60.5%;
+    }
+
+    .wrapper {
+        padding: 0 1rem;
+    }
+
+    main .top-info , .bottom-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
