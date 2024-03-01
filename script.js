@@ -4,17 +4,23 @@ document.querySelector("#search-form").addEventListener('submit', async (event) 
 
     //pega o nome do input do search
     const cityName = document.querySelector('#search-form-input').value;
-    
+
+    //pega o main
+    const weatherCotainer = document.querySelector('#main-section');
+
     //valida se estiver preenchido segue, caso não returna algo.
     if (!cityName) {
         return showAlert('Ops...Something wrong, please check and try again!');
     }
 
     const apiKey = `bc95dac79ca9d494e2701f30fcfe5adc`
-    const apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric&lang=eng`
+    const apiUrl =`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric&lang=pt_br`
 
     const results = await fetch(apiUrl);
     const json = await results.json();
+
+    //remove a class hide para mostrar o menu quando clicar
+    weatherCotainer.classList.remove("hide");
 
     //valida se a API está funcionando 200 = oK
     if (json.cod === 200) {
@@ -27,17 +33,19 @@ document.querySelector("#search-form").addEventListener('submit', async (event) 
             windSpeed: json.wind.speed,
             description: json.weather[0].description,
             windDeg: json.wind.deg,
+            tempIcon: json.weather[0].icon,
         });
+        //caso não achar a cidade..
     }else {
         showAlert('city not found..')
     }
-
-
 
 });
 
 function showInfo(json) {
     showAlert('');
+
+    document.querySelector("#main-section").classList.add('.hiden');
 
     // Cidade e pais
     document.querySelector('#title').innerHTML = `${json.city}, ${json.country}`;
@@ -57,39 +65,13 @@ function showInfo(json) {
     //vento deg
     document.querySelector('#temp-rain').innerHTML = `${json.windDeg}`;
 
-
-    const image = document.querySelector('#temp-img');    
-
-    switch (json.weather[0].icon) {
-        case 'Clear':
-            image.src = 'assets/clear.png';
-            break;
-
-            case 'Rain':
-                image.src = 'assets/clear.png';
-                break;
-
-                case 'Snow':
-                image.src = 'assets/clear.png';
-                break;
-
-                case 'Clouds':
-                image.src = 'assets/clear.png';
-                break;
-
-                case 'Haze':
-                    image.src = 'assets/clear.png';
-                    break;
-
-                    default:
-                        image.src='';
-    }
-
+    document.querySelector('#temp-img').setAttribute('src' , `https://openweathermap.org/img/wn/${json.tempIcon}@2x.png`)
 }
-
 
 //funcao mostrar o alerta
 function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
 }
+
+
 

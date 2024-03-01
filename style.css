@@ -140,6 +140,11 @@ main .top-info {
     font-weight: 400;
 }
 
+/* animacao para mostrar o MAIN */
+.hide {
+    display: none;
+}
+
 .top-info .colum1-city {
     display: flex;
     align-items: center;
